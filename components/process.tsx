@@ -39,9 +39,6 @@ export function Process() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, index) => (
             <div key={step.number} className="relative">
-              {index < steps.length - 1 && (
-                <div className="absolute top-8 left-full hidden h-px w-full bg-gradient-to-r from-border to-transparent lg:block" />
-              )}
               <div className="mb-4 font-mono text-4xl font-bold text-primary/20">{step.number}</div>
               <h3 className="mb-2 text-lg font-semibold">{step.title}</h3>
               <p className="text-sm text-muted-foreground sm:text-base">{step.description}</p>

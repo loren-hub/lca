@@ -47,10 +47,12 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#0f1a0f',
+  themeColor: '#f7f9fa',
   width: 'device-width',
   initialScale: 1,
 }
+
+import { ThemeProvider } from '@/components/theme-provider'
 
 export const dynamic = 'force-static'
 export const revalidate = 3600
@@ -61,18 +63,20 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" className={`${geist.variable} ${geistMono.variable} bg-background`}>
+    <html lang="es" className={`${geist.variable} ${geistMono.variable} bg-background`} suppressHydrationWarning>
       <body className="font-sans antialiased">
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 rounded bg-primary px-4 py-2 font-semibold text-primary-foreground"
-        >
-          Saltar al contenido
-        </a>
-        <main id="main-content" tabIndex={-1}>
-          {children}
-        </main>
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 rounded bg-primary px-4 py-2 font-semibold text-primary-foreground"
+          >
+            Saltar al contenido
+          </a>
+          <main id="main-content" tabIndex={-1}>
+            {children}
+          </main>
+          {process.env.NODE_ENV === 'production' && <Analytics />}
+        </ThemeProvider>
       </body>
     </html>
   )

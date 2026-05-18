@@ -1,7 +1,15 @@
 import type { MetadataRoute } from 'next'
+import { locations } from '@/lib/locations'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://lcatechnologysolutions.com'
+
+  const locationUrls = locations.map((loc) => ({
+    url: `${baseUrl}/ciberseguridad-en-${loc.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+  }))
 
   return [
     {
@@ -40,5 +48,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.7,
     },
+    ...locationUrls,
   ]
 }

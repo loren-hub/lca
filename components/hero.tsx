@@ -9,8 +9,8 @@ export function Hero() {
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.03]"
         style={{
-          backgroundImage: `linear-gradient(rgba(200, 255, 0, 0.5) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(200, 255, 0, 0.5) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(var(--grid-color) 1px, transparent 1px),
+            linear-gradient(90deg, var(--grid-color) 1px, transparent 1px)`,
           backgroundSize: '60px 60px',
         }}
       />
