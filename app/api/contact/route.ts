@@ -46,7 +46,7 @@ export async function POST(request: Request) {
     // Send notification email to LCA
     const notification = notificationEmail({ name, email, phone, company, service, message })
     await resend.emails.send({
-      from: 'LCA <contact@lcatechnologysolutions.com>',
+      from: 'LCA <contact@contact.lcatechnologysolutions.com>',
       to: [
         'b.carrion@lcatechnologysolutions.com',
         'r.lopez@lcatechnologysolutions.com',
@@ -59,7 +59,7 @@ export async function POST(request: Request) {
     // Send confirmation email to the user
     const confirmation = confirmationEmail(name, message)
     await resend.emails.send({
-      from: 'LCA <contact@lcatechnologysolutions.com>',
+      from: 'LCA <contact@contact.lcatechnologysolutions.com>',
       to: [email],
       subject: confirmation.subject,
       html: confirmation.html,
