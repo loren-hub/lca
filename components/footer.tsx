@@ -4,7 +4,7 @@ import { Instagram, Linkedin } from 'lucide-react'
 const footerLinks = [
   { href: '#servicios', label: 'Servicios' },
   { href: '#proceso', label: 'Proceso' },
-  { href: '#nosotros', label: 'Nosotros' },
+  { href: '#suit', label: 'Nuestra Suit' },
   { href: '#contacto', label: 'Contacto' },
 ]
 

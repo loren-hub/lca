@@ -9,8 +9,7 @@ import { ThemeToggle } from '@/components/theme-toggle'
 const navLinks = [
   { href: '#servicios', label: 'Servicios' },
   { href: '#proceso', label: 'Proceso' },
-  { href: '#nosotros', label: 'Nosotros' },
-  { href: '#equipo', label: 'Equipo' },
+  { href: '#suit', label: 'Nuestra Suit' },
   { href: '#contacto', label: 'Contacto' },
 ]
 

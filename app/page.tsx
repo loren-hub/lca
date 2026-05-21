@@ -20,7 +20,6 @@ export default function Home() {
       <Services />
       <Process />
       <About />
-      <Team />
       <Contact />
       <Footer />
     </>

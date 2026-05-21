@@ -47,10 +47,10 @@ const msApps = [
 
 export function About() {
   return (
-    <section id="nosotros" className="px-6 py-24 md:py-32">
+    <section id="suit" className="px-6 py-24 md:py-32">
       <div className="mx-auto max-w-7xl">
         <div className="max-w-3xl mb-16">
-          <p className="mb-3 font-mono text-sm uppercase tracking-wider text-primary sm:text-base">Nosotros</p>
+          <p className="mb-3 font-mono text-sm uppercase tracking-wider text-primary sm:text-base">Suit</p>
           <h2 className="mb-6 text-balance text-3xl font-bold tracking-tight md:text-4xl">
             Las herramientas que utilizamos
           </h2>
