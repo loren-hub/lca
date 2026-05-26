@@ -24,7 +24,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    const { name, email, phone, company, service, message } = await request.json()
+    const { name, email, phone, company, service, message, timezone } = await request.json()
 
     // Validate required fields
     if (!name || !email || !message) {
@@ -44,7 +44,7 @@ export async function POST(request: Request) {
     }
 
     // Send notification email to LCA
-    const notification = notificationEmail({ name, email, phone, company, service, message })
+    const notification = notificationEmail({ name, email, phone, company, service, message, timezone })
     await resend.emails.send({
       from: 'LCA <contact@contact.lcatechnologysolutions.com>',
       to: [

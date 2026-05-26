@@ -5,10 +5,11 @@ interface ContactFormData {
   company?: string
   service?: string
   message: string
+  timezone?: string
 }
 
 export function notificationEmail(data: ContactFormData) {
-  const { name, email, phone, company, service, message } = data
+  const { name, email, phone, company, service, message, timezone } = data
 
   return {
     subject: `Nuevo contacto: ${name}${company ? ` - ${company}` : ''}`,
@@ -20,8 +21,8 @@ export function notificationEmail(data: ContactFormData) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nuevo mensaje de contacto</title>
 </head>
-<body style="margin: 0; padding: 0; background-color: #f7f9fa; font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color: #f7f9fa;">
+<body style="margin: 0; padding: 0; background-color: #f4faf7; font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color: #f4faf7;">
     <tr>
       <td align="center" style="padding: 48px 24px;">
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width: 580px; background-color: #ffffff; border-radius: 12px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
@@ -32,12 +33,12 @@ export function notificationEmail(data: ContactFormData) {
                       <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
                         <tr>
                           <td>
-                            <p style="margin: 0 0 4px; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #64748b;">
+                            <p style="margin: 0 0 4px; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #004052;">
                               LCA Technology Solutions
                             </p>
                           </td>
                           <td align="right">
-                            <span style="display: inline-block; background-color: #009F93; color: #ffffff; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; padding: 4px 12px; border-radius: 999px;">
+                            <span style="display: inline-block; background-color: #06c79e; color: #004052; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; padding: 4px 12px; border-radius: 999px;">
                               NUEVO
                             </span>
                           </td>
@@ -49,7 +50,7 @@ export function notificationEmail(data: ContactFormData) {
                   <!-- Title -->
                   <tr>
                     <td style="padding: 32px 40px 0;">
-                      <h1 style="margin: 0; font-size: 24px; font-weight: 700; color: #0f172a; letter-spacing: -0.02em;">
+                      <h1 style="margin: 0; font-size: 24px; font-weight: 700; color: #004052; letter-spacing: -0.02em;">
                         Nuevo mensaje de contacto
                       </h1>
                       <p style="margin: 8px 0 0; font-size: 14px; color: #475569;">
@@ -69,7 +70,7 @@ export function notificationEmail(data: ContactFormData) {
                                 <td style="padding: 8px 0; color: #64748b; width: 90px; vertical-align: top; font-size: 13px;">
                                   Nombre
                                 </td>
-                                <td style="padding: 8px 0; color: #0f172a; font-weight: 500;">
+                                <td style="padding: 8px 0; color: #004052; font-weight: 500;">
                                   ${name}
                                 </td>
                               </tr>
@@ -77,8 +78,8 @@ export function notificationEmail(data: ContactFormData) {
                                 <td style="padding: 8px 0; color: #64748b; font-size: 13px;">
                                   Email
                                 </td>
-                                <td style="padding: 8px 0; color: #0f172a;">
-                                  <a href="mailto:${email}" style="color: #009F93; text-decoration: none; font-weight: 500;">${email}</a>
+                                <td style="padding: 8px 0; color: #004052;">
+                                  <a href="mailto:${email}" style="color: #008f72; text-decoration: none; font-weight: 500;">${email}</a>
                                 </td>
                               </tr>
                               ${phone ? `
@@ -86,8 +87,8 @@ export function notificationEmail(data: ContactFormData) {
                                 <td style="padding: 8px 0; color: #64748b; font-size: 13px;">
                                   Teléfono
                                 </td>
-                                <td style="padding: 8px 0; color: #0f172a;">
-                                  <a href="tel:${phone}" style="color: #0f172a; text-decoration: none;">${phone}</a>
+                                <td style="padding: 8px 0; color: #004052;">
+                                  <a href="tel:${phone}" style="color: #004052; text-decoration: none;">${phone}</a>
                                 </td>
                               </tr>
                               ` : ''}
@@ -96,7 +97,7 @@ export function notificationEmail(data: ContactFormData) {
                                 <td style="padding: 8px 0; color: #64748b; font-size: 13px;">
                                   Empresa
                                 </td>
-                                <td style="padding: 8px 0; color: #0f172a;">
+                                <td style="padding: 8px 0; color: #004052;">
                                   ${company}
                                 </td>
                               </tr>
@@ -106,7 +107,7 @@ export function notificationEmail(data: ContactFormData) {
                                 <td style="padding: 8px 0; color: #64748b; font-size: 13px;">
                                   Servicio
                                 </td>
-                                <td style="padding: 8px 0; color: #0f172a;">
+                                <td style="padding: 8px 0; color: #004052;">
                                   ${service}
                                 </td>
                               </tr>
@@ -121,10 +122,10 @@ export function notificationEmail(data: ContactFormData) {
                   <!-- Message -->
                   <tr>
                     <td style="padding: 0 40px 32px;">
-                      <p style="margin: 0 0 12px; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: #009F93;">
+                      <p style="margin: 0 0 12px; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: #004052;">
                         Mensaje
                       </p>
-                      <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-left: 3px solid #009F93; border-radius: 8px; padding: 20px;">
+                      <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-left: 3px solid #06c79e; border-radius: 8px; padding: 20px;">
                         <p style="margin: 0; font-size: 14px; line-height: 1.7; color: #334155; white-space: pre-wrap;">${message}</p>
                       </div>
                     </td>
@@ -137,7 +138,7 @@ export function notificationEmail(data: ContactFormData) {
                         Enviado desde lcatechnologysolutions.com
                       </p>
                       <p style="margin: 0; font-size: 11px; color: #94a3b8;">
-                        ${new Date().toLocaleString('es-ES', { dateStyle: 'long', timeStyle: 'medium' })}
+                        ${new Date().toLocaleString('es-ES', { dateStyle: 'long', timeStyle: 'medium', timeZone: timezone || 'Europe/Madrid' })}
                       </p>
                     </td>
                   </tr>
@@ -163,8 +164,8 @@ export function confirmationEmail(name: string, message: string) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gracias por contactarnos</title>
 </head>
-<body style="margin: 0; padding: 0; background-color: #f7f9fa; font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color: #f7f9fa;">
+<body style="margin: 0; padding: 0; background-color: #f4faf7; font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color: #f4faf7;">
     <tr>
       <td align="center" style="padding: 48px 24px;">
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width: 580px; background-color: #ffffff; border-radius: 12px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
@@ -172,14 +173,14 @@ export function confirmationEmail(name: string, message: string) {
                   <!-- Header with accent bar -->
                   <tr>
                     <td style="padding: 0;">
-                      <div style="height: 4px; background: linear-gradient(90deg, #009F93 0%, #0A2E36 100%);"></div>
+                      <div style="height: 4px; background: linear-gradient(90deg, #47d37d 0%, #004052 100%);"></div>
                     </td>
                   </tr>
 
                   <!-- Logo area -->
                   <tr>
                     <td style="padding: 40px 40px 0; text-align: center;">
-                      <p style="margin: 0 0 4px; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #64748b;">
+                      <p style="margin: 0 0 4px; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #004052;">
                         LCA Technology Solutions
                       </p>
                     </td>
@@ -188,8 +189,8 @@ export function confirmationEmail(name: string, message: string) {
                   <!-- Success icon -->
                   <tr>
                     <td style="padding: 24px 0 0; text-align: center;">
-                      <div style="display: inline-block; width: 56px; height: 56px; background-color: rgba(0, 159, 147, 0.1); border: 1px solid rgba(0, 159, 147, 0.25); border-radius: 50%; text-align: center; line-height: 56px;">
-                        <span style="font-size: 24px; color: #009F93;">✓</span>
+                      <div style="display: inline-block; width: 56px; height: 56px; background-color: rgba(6, 199, 158, 0.1); border: 1px solid rgba(6, 199, 158, 0.25); border-radius: 50%; text-align: center; line-height: 56px;">
+                        <span style="font-size: 24px; color: #06c79e;">✓</span>
                       </div>
                     </td>
                   </tr>
@@ -197,7 +198,7 @@ export function confirmationEmail(name: string, message: string) {
                   <!-- Title -->
                   <tr>
                     <td style="padding: 24px 40px 0; text-align: center;">
-                      <h1 style="margin: 0; font-size: 24px; font-weight: 700; color: #0f172a; letter-spacing: -0.02em;">
+                      <h1 style="margin: 0; font-size: 24px; font-weight: 700; color: #004052; letter-spacing: -0.02em;">
                         Gracias por contactarnos, ${name}
                       </h1>
                     </td>
@@ -215,7 +216,7 @@ export function confirmationEmail(name: string, message: string) {
                   <!-- Your message recap -->
                   <tr>
                     <td style="padding: 32px 40px 0;">
-                      <p style="margin: 0 0 12px; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: #009F93;">
+                      <p style="margin: 0 0 12px; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: #004052;">
                         Tu mensaje
                       </p>
                       <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px;">
@@ -229,8 +230,8 @@ export function confirmationEmail(name: string, message: string) {
                     <td style="padding: 32px 40px;">
                       <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
                         <tr>
-                          <td style="background-color: rgba(0, 159, 147, 0.04); border: 1px solid rgba(0, 159, 147, 0.15); border-radius: 8px; padding: 20px; text-align: center;">
-                            <p style="margin: 0 0 4px; font-size: 14px; color: #0f172a; font-weight: 500;">
+                          <td style="background-color: rgba(6, 199, 158, 0.04); border: 1px solid rgba(6, 199, 158, 0.15); border-radius: 8px; padding: 20px; text-align: center;">
+                            <p style="margin: 0 0 4px; font-size: 14px; color: #004052; font-weight: 500;">
                               ¿Necesitas ayuda urgente?
                             </p>
                             <p style="margin: 0; font-size: 13px; color: #64748b;">
@@ -247,7 +248,7 @@ export function confirmationEmail(name: string, message: string) {
                     <td style="padding: 0 40px 32px; text-align: center;">
                       <p style="margin: 0; font-size: 14px; color: #475569; line-height: 1.7;">
                         Saludos,<br>
-                        <strong style="color: #0f172a;">El equipo de LCA</strong>
+                        <strong style="color: #004052;">El equipo de LCA</strong>
                       </p>
                     </td>
                   </tr>
@@ -259,7 +260,7 @@ export function confirmationEmail(name: string, message: string) {
                         LCA Technology Solutions — Ciberseguridad monitorizada para PYMEs
                       </p>
                       <p style="margin: 0; font-size: 11px; color: #94a3b8;">
-                        <a href="https://lcatechnologysolutions.com" style="color: #009F93; text-decoration: none; font-weight: 500;">lcatechnologysolutions.com</a>
+                        <a href="https://lcatechnologysolutions.com" style="color: #008f72; text-decoration: none; font-weight: 500;">lcatechnologysolutions.com</a>
                       </p>
                     </td>
                   </tr>

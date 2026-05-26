@@ -34,6 +34,7 @@ export function Contact() {
       company: formData.get('company') as string,
       service: formData.get('service') as string,
       message: formData.get('message') as string,
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
     }
 
     try {
