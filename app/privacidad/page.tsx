@@ -23,7 +23,7 @@ export default function PrivacyPolicy() {
             <br />
             <strong>Dirección:</strong> [Dirección fiscal]
             <br />
-            <strong>Email:</strong> [contact@lcatechnologysolutions.com]
+            <strong>Email:</strong> [info@lcatechnologysolutions.com]
             <br />
             <strong>Finalidad:</strong> Prestación de servicios de ciberseguridad y gestión de datos de clientes
           </p>
@@ -70,7 +70,7 @@ export default function PrivacyPolicy() {
             <li>Oponerte al tratamiento de tus datos</li>
           </ul>
           <p>
-            Para ejercer estos derechos, contacta a: [contact@lcatechnologysolutions.com]
+            Para ejercer estos derechos, contacta a: [info@lcatechnologysolutions.com]
           </p>
 
           <h2>6. Conservación de Datos</h2>
