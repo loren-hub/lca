@@ -10,9 +10,10 @@ import { Label } from '@/components/ui/label'
 type FormStatus = 'idle' | 'loading' | 'success' | 'error'
 
 const serviceOptions = [
-  'Auditoría y supervisión de seguridad',
-  'SOC — monitoreo de accesos y alertas',
-  'Protocolos de respuesta sugeridos',
+  'Monitoreo y Protección de Entornos',
+  'Continuidad, Respaldo y Formación',
+  'Soporte y Mantenimiento Web',
+  'Servicios adicionales',
   'No sé todavía, necesito orientación',
 ]
 

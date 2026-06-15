@@ -35,36 +35,39 @@ export function JsonLdScript() {
       offers: [
         {
           '@type': 'Offer',
-          name: 'Auditoría y Supervisión de Seguridad',
+          name: 'Monitoreo y Protección de Entornos',
           description:
-            'Supervisamos que tu infraestructura esté actualizada, con copias de seguridad funcionales y con la configuración de seguridad aplicada.',
+            'Supervisamos tus equipos y software para que el día a día no se detenga por fallos técnicos o accesos indebidos.',
         },
         {
           '@type': 'Offer',
-          name: 'SOC — Monitoreo de Accesos y Alertas',
+          name: 'Continuidad, Respaldo y Formación',
           description:
-            'Monitoreamos los accesos a tus sistemas y te avisamos cuando algo no cuadra.',
+            'Si ocurre un problema, tenemos la estrategia y las herramientas para que la información siga disponible.',
         },
         {
           '@type': 'Offer',
-          name: 'Protocolos de Respuesta Sugeridos',
+          name: 'Soporte y Mantenimiento Web',
           description:
-            'Guías de actuación documentadas para los escenarios de riesgo más comunes.',
+            'Nos ocupamos de que tu web esté actualizada y funcionando correctamente para tus clientes.',
         },
         {
           '@type': 'Offer',
-          name: 'Instalación NAS',
-          description: 'Configuración y puesta en marcha de almacenamiento en red para respaldo y gestión de datos.',
+          name: 'Gestión de Altas y Bajas',
+          description:
+            'Administración centralizada de usurios, reseteo de accesos y migración de datos entre empleados.',
         },
         {
           '@type': 'Offer',
-          name: 'Desarrollo web',
-          description: 'Diseño y desarrollo de sitios web adaptados a las necesidades del negocio.',
+          name: 'Inventario y Auditoría de Activos',
+          description:
+            'Informe detallado de tu parque informático, licencias y estado del hardware.',
         },
         {
           '@type': 'Offer',
-          name: 'Formación a empleados',
-          description: 'Capacitación en buenas prácticas de seguridad y concienciación sobre riesgos digitales.',
+          name: 'Cumplimiento Documental',
+          description:
+            'Actualización de la documentación técnica obligatoria (políticas de seguridad, registros de incidentes y protocolos).',
         },
       ],
     },

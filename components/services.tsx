@@ -1,44 +1,50 @@
 'use client'
 
 import { useState } from 'react'
-import { Server, Eye, BookOpen, ChevronDown, ChevronUp } from 'lucide-react'
+import { Shield, BookOpen, Globe, ChevronDown, ChevronUp } from 'lucide-react'
 
 const services = [
   {
-    icon: Server,
-    title: 'Auditoría y Supervisión de Seguridad',
+    icon: Shield,
+    title: 'Monitoreo y Protección de Entornos',
+    subtitle: 'Seguridad activa para tus sistemas',
     description:
-      'Supervisamos que tu infraestructura esté actualizada, con copias de seguridad funcionales y con la configuración de seguridad aplicada. El trabajo de revisión que debería estar ocurriendo siempre y que en la mayoría de PYMEs se descuida.',
+      'Supervisamos tus equipos y software para que el día a día no se detenga por fallos técnicos o accesos indebidos.',
     bullets: [
-      'Supervisión de backups: verificación periódica de políticas de retención, pruebas de restauración documentadas y alertas de fallo',
-      'Control de actualizaciones de Windows, Microsoft 365 y Google Workspace: reporte de parches críticos pendientes y ventanas de mantenimiento sugeridas',
-      'Auditoría periódica de firewall, antivirus endpoint y políticas de acceso: revisión de MFA, caducidad de contraseñas y sesiones activas',
+      { text: 'Monitoreo de equipos: controlamos actualizaciones, antivirus y vulnerabilidades.' },
+      { text: 'Gestión de identidades: configuración de doble factor (MFA) para evitar suplantaciones en entornos como Microsoft 365 o Google Workspace.', pdf: true },
+      { text: 'Control de acceso: supervisamos inicios de sesión sospechosos y bloqueos de seguridad.', pdf: true },
+      { text: 'Gestión de aplicaciones: validación y actualización de software administrativo como Autofirma para tus trámites con la Administración.', pdf: true },
     ],
     caso: 'Una empresa de 12 personas lleva usando la misma contraseña de administrador en el router desde que lo instaló el operador hace tres años. El antivirus lleva sin actualizarse porque "siempre sale un aviso". Con este servicio, esos riesgos se detectan y se reportan en el diagnóstico inicial para su corrección inmediata.',
   },
   {
-    icon: Eye,
-    title: 'SOC — Monitoreo de Accesos y Alertas',
+    icon: BookOpen,
+    title: 'Continuidad, Respaldo y Formación',
+    subtitle: 'Resiliencia ante imprevistos',
     description:
-      'Monitoreamos los accesos a tus sistemas y te avisamos cuando algo no cuadra. Inicios de sesión fuera de horario, intentos de acceso repetidos, conexiones desde ubicaciones inusuales. No esperamos a que el daño ocurra para enterarnos.',
+      'Si ocurre un problema, tenemos la estrategia y las herramientas para que la información siga disponible.',
     bullets: [
-      'Centralización de logs de Microsoft 365, Google Workspace y dispositivos de red — correlación de eventos con reglas de alerta configuradas para tu entorno concreto',
-      'Detección de comportamientos anómalos: accesos fuera del horario habitual, múltiples intentos de login fallidos o actividad desde IPs no autorizadas',
-      'Informe mensual de seguridad: resumen de eventos, alertas generadas y vulnerabilidades detectadas — entregado en lenguaje no técnico',
+      { text: 'Backups gestionados: copias de seguridad de OneDrive, SharePoint o servidores, con validación periódica.', pdf: true },
+      { text: 'Simulacros de phishing: entrenamos a tu equipo para detectar correos fraudulentos antes de que hagan clic.', pdf: true },
+      { text: 'Píldoras formativas: sesiones breves de ciberseguridad adaptadas al día a día de tu plantilla.', pdf: false },
+      { text: 'Protocolos de actuación: guías documentadas ante situaciones críticas (ransomware, pérdida de dispositivos).', pdf: true },
     ],
     caso: 'Un empleado de una gestoría introduce sus credenciales en un sitio de phishing. El atacante accede a su buzón desde el extranjero a las 2 de la mañana. Con este servicio, la alerta de acceso inusual se reporta de inmediato al responsable técnico para su bloqueo antes de que se produzca una fuga de datos.',
   },
   {
-    icon: BookOpen,
-    title: 'Protocolos de Respuesta Sugeridos',
+    icon: Globe,
+    title: 'Soporte y Mantenimiento Web',
+    subtitle: 'Tu sitio web siempre operativo',
     description:
-      'Guías de actuación documentadas para los escenarios de riesgo más comunes. Cuando algo falla, el cliente dispone de un paso a paso detallado sobre qué hacer y a quién contactar. Sin improvisar.',
+      'Nos ocupamos de que tu web esté actualizada y funcionando correctamente para tus clientes.',
     bullets: [
-      'Guía ante ransomware: protocolo de aislamiento, notificación a autoridades, proceso de recuperación desde backup y plan de comunicación',
-      'Guía para cuentas comprometidas: pasos para la revocación de sesiones, auditoría de actividad y restablecimiento seguro de credenciales',
-      'Protocolos de escalado: árbol de decisión y contactos clave para la restauración de servicios prioritarios tras un fallo crítico',
+      { text: 'Mantenimiento técnico de WordPress: actualización de plugins y núcleo para cerrar brechas de seguridad.', pdf: true },
+      { text: 'Monitoreo de disponibilidad: control constante para detectar caídas del servidor.', pdf: true },
+      { text: 'Copias de seguridad externas de tu base de datos y diseño web.', pdf: true },
+      { text: 'Soporte operativo: gestión de cambios en textos, imágenes o formularios de contacto.', pdf: true },
     ],
-    caso: 'Una empresa sufre un incidente un viernes noche. Sin protocolo, se pierde tiempo crítico decidiendo si apagar o no los equipos. Con una guía de respuesta clara a mano, el responsable aplica la primera acción de contención recomendada en minutos. La diferencia entre una recuperación rápida o una crisis de días.',
+    caso: 'La web de una clínica médica queda inaccesible tras la actualización automática de un plugin de WordPress, impidiendo a los pacientes reservar citas. Con nuestro servicio de soporte y monitoreo, detectamos la caída al instante, revertimos el cambio a la última copia de seguridad funcional en minutos y planificamos la actualización de forma segura.',
   },
 ]
 
@@ -52,39 +58,50 @@ function ServiceCard({
   const [isExpanded, setIsExpanded] = useState(false)
 
   return (
-    <div className="group relative rounded-lg border border-border bg-card p-8 transition-colors hover:border-primary/30 hover:bg-card/80">
-      <div className="mb-6 flex items-center gap-4">
-        <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-          <service.icon className="h-6 w-6 text-primary" />
+    <div className="group relative rounded-lg border border-border bg-card p-8 transition-colors hover:border-primary/30 hover:bg-card/80 flex flex-col justify-between">
+      <div>
+        <div className="mb-6 flex items-center justify-between">
+          <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+            <service.icon className="h-6 w-6 text-primary" />
+          </div>
+          <span className="font-mono text-[0.8rem] text-muted-foreground sm:text-sm">0{index + 1}</span>
         </div>
-        <span className="font-mono text-[0.8rem] text-muted-foreground sm:text-sm">0{index + 1}</span>
+
+        <h3 className="mb-1 text-xl font-semibold text-foreground leading-snug">{service.title}</h3>
+        <p className="mb-4 text-xs font-semibold text-primary uppercase tracking-wider">{service.subtitle}</p>
+        <p className="mb-6 text-sm text-muted-foreground sm:text-base leading-relaxed">{service.description}</p>
+
+        <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-foreground">
+          Puntos clave:
+        </p>
+
+        <ul className="mb-6 space-y-4">
+          {service.bullets.map((bullet, i) => (
+            <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground sm:text-base">
+              <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" />
+              <span className="leading-relaxed">
+                {bullet.text}
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
 
-      <h3 className="mb-3 text-xl font-semibold">{service.title}</h3>
-      <p className="mb-6 text-sm text-muted-foreground sm:text-base">{service.description}</p>
+      <div>
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="flex w-full items-center justify-between border-t border-border pt-4 text-sm text-primary transition-colors hover:text-primary/80 sm:text-base"
+        >
+          <span>Ver caso real</span>
+          {isExpanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+        </button>
 
-      <ul className="mb-6 space-y-3">
-        {service.bullets.map((bullet, i) => (
-          <li key={i} className="flex gap-3 text-sm text-muted-foreground sm:text-base">
-            <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary" />
-            <span>{bullet}</span>
-          </li>
-        ))}
-      </ul>
-
-      <button
-        onClick={() => setIsExpanded(!isExpanded)}
-        className="flex w-full items-center justify-between border-t border-border pt-4 text-sm text-primary transition-colors hover:text-primary/80 sm:text-base"
-      >
-        <span>Ver caso real</span>
-        {isExpanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-      </button>
-
-      {isExpanded && (
-        <div className="mt-4 rounded-lg bg-secondary/50 p-4">
-          <p className="text-sm text-muted-foreground italic leading-relaxed sm:text-base">{service.caso}</p>
-        </div>
-      )}
+        {isExpanded && (
+          <div className="mt-4 rounded-lg bg-secondary/50 p-4">
+            <p className="text-sm text-muted-foreground italic leading-relaxed sm:text-base">{service.caso}</p>
+          </div>
+        )}
+      </div>
     </div>
   )
 }
@@ -92,16 +109,22 @@ function ServiceCard({
 function AdditionalServices() {
   const additional = [
     {
-      name: 'Instalación NAS',
-      description: 'Configuración y puesta en marcha de almacenamiento en red para respaldo y gestión de datos.',
+      name: 'Gestión de Altas y Bajas',
+      description:
+        'Administración centralizada de usuarios, reseteo de accesos y migración de datos entre empleados.',
+      pdf: true,
     },
     {
-      name: 'Desarrollo web',
-      description: 'Diseño y desarrollo de sitios web adaptados a las necesidades del negocio.',
+      name: 'Inventario y Auditoría de Activos',
+      description:
+        'Informe detallado de tu parque informático, licencias y estado del hardware para evitar compras innecesarias.',
+      pdf: true,
     },
     {
-      name: 'Formación a empleados',
-      description: 'Capacitación en buenas prácticas de seguridad y concienciación sobre riesgos digitales.',
+      name: 'Cumplimiento Documental',
+      description:
+        'Documentación técnica obligatoria (políticas de seguridad, registros de incidentes y protocolos).',
+      pdf: true,
     },
   ]
 
@@ -113,10 +136,12 @@ function AdditionalServices() {
       <ul className="space-y-6">
         {additional.map((item, i) => (
           <li key={i} className="flex gap-4">
-            <span className="mt-1.5 h-1.5 shrink-0 rounded-full bg-primary" />
+            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
             <div>
               <p className="mb-1 font-medium text-foreground sm:text-base">{item.name}</p>
-              <p className="text-sm text-muted-foreground sm:text-base">{item.description}</p>
+              <p className="text-sm text-muted-foreground sm:text-base leading-relaxed">
+                {item.description}
+              </p>
             </div>
           </li>
         ))}
@@ -139,7 +164,7 @@ export function Services() {
           </p>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div className="grid gap-6 lg:grid-cols-3 items-start">
           {services.map((service, index) => (
             <ServiceCard key={service.title} service={service} index={index} />
           ))}

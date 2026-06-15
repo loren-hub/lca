@@ -45,7 +45,7 @@ export async function POST(request: Request) {
 
     // Send notification email to LCA
     const notification = notificationEmail({ name, email, phone, company, service, message, timezone })
-    await resend.emails.send({
+    const notifResult = await resend.emails.send({
       from: 'LCA <info@info.lcatechnologysolutions.com>',
       to: [
         'b.carrion@lcatechnologysolutions.com',
@@ -56,14 +56,29 @@ export async function POST(request: Request) {
       html: notification.html,
     })
 
+    if (notifResult.error) {
+      console.error('Error sending notification email to LCA:', notifResult.error)
+      return NextResponse.json(
+        { error: `Error al enviar la notificación interna: ${notifResult.error.message}` },
+        { status: 500 }
+      )
+    }
+
     // Send confirmation email to the user
     const confirmation = confirmationEmail(name, message)
-    await resend.emails.send({
+    const confResult = await resend.emails.send({
       from: 'LCA <info@info.lcatechnologysolutions.com>',
       to: [email],
       subject: confirmation.subject,
       html: confirmation.html,
     })
+
+    if (confResult.error) {
+      console.error('Error sending confirmation email to user:', confResult.error)
+      // We do not fail the request if the internal notification was successfully sent,
+      // but we return a success response with a warning so the backend is aware.
+      return NextResponse.json({ success: true, warning: 'Confirmation email failed', details: confResult.error.message })
+    }
 
     return NextResponse.json({ success: true })
   } catch (error) {
