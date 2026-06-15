@@ -3,19 +3,19 @@ const steps = [
     number: '01',
     title: 'Instalación y puesta en marcha',
     description:
-      'Desplegamos Wazuh en tus dispositivos y lo conectamos al servidor central. Sin interrupciones. En menos de 48 h tu entorno ya está vigilado.',
+      'Desplegamos el software en tus dispositivos y lo conectamos a nuestra infraestructura. Sin interrupciones. En menos de 48 h tu entorno ya está vigilado.',
   },
   {
     number: '02',
     title: 'Monitoreo continuo',
     description:
-      'Recogemos logs de todos tus sistemas en tiempo real: Windows, Microsoft 365 y red. Cualquier cambio o acceso anómalo queda registrado.',
+      'Recogemos información de todos tus sistemas en tiempo real: Windows, Microsoft 365 y red. Cualquier cambio o acceso anómalo queda registrado.',
   },
   {
     number: '03',
     title: 'Alertas inteligentes',
     description:
-      'Cuando algo no cuadre, recibemos una alerta inmediata. Accesos fuera de horario, intentos de login fallidos, IPs desconocidas. Solo lo que importa.',
+      'Cuando algo no cuadre, recibemos una alerta inmediata. Accesos fuera de horario, intentos de login fallidos, IPs desconocidas...',
   },
   {
     number: '04',
