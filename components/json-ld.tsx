@@ -8,8 +8,8 @@ export function JsonLdScript() {
     description:
       'Monitorización, auditoría y reporte de seguridad IT para PYMEs en España. Supervisión continua de accesos, actualizaciones y políticas de seguridad.',
     url: baseUrl,
-    logo: `${baseUrl}/icon.svg`,
-    telephone: '+34 000 000 000',
+    logo: `${baseUrl}/icon.png`,
+    telephone: '+34 711 26 50 42',
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'ES',
