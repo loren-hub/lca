@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { Shield, BookOpen, Globe, ChevronDown, ChevronUp } from 'lucide-react'
 
 const services = [
@@ -8,6 +9,7 @@ const services = [
     icon: Shield,
     title: 'Monitoreo y Protección de Entornos',
     subtitle: 'Seguridad activa para tus sistemas',
+    image: '/images/service-monitoring.png',
     description:
       'Supervisamos tus equipos y software para que el día a día no se detenga por fallos técnicos o accesos indebidos.',
     bullets: [
@@ -22,6 +24,7 @@ const services = [
     icon: BookOpen,
     title: 'Continuidad, Respaldo y Formación',
     subtitle: 'Resiliencia ante imprevistos',
+    image: '/images/service-backup.png',
     description:
       'Si ocurre un problema, tenemos la estrategia y las herramientas para que la información siga disponible.',
     bullets: [
@@ -36,6 +39,7 @@ const services = [
     icon: Globe,
     title: 'Soporte y Mantenimiento Web',
     subtitle: 'Tu sitio web siempre operativo',
+    image: '/images/service-support.png',
     description:
       'Nos ocupamos de que tu web esté actualizada y funcionando correctamente para tus clientes.',
     bullets: [
@@ -58,36 +62,49 @@ function ServiceCard({
   const [isExpanded, setIsExpanded] = useState(false)
 
   return (
-    <div className="group relative rounded-lg border border-border bg-card p-8 transition-colors hover:border-primary/30 hover:bg-card/80 flex flex-col justify-between">
+    <div className="group relative overflow-hidden rounded-lg border border-border bg-card transition-all hover:border-primary/30 hover:bg-card/85 hover:shadow-lg hover:shadow-primary/5 flex flex-col justify-between min-h-full">
       <div>
-        <div className="mb-6 flex items-center justify-between">
-          <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-            <service.icon className="h-6 w-6 text-primary" />
+        {/* Cabecera de imagen */}
+        <div className="relative w-full aspect-video overflow-hidden border-b border-border/40">
+          <Image
+            src={service.image}
+            alt={service.title}
+            fill
+            sizes="(max-width: 768px) 100vw, 33vw"
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
+          
+          {/* Icono e índice flotantes */}
+          <div className="absolute top-4 left-4 flex h-10 w-10 items-center justify-center rounded-lg bg-background/90 backdrop-blur-sm shadow-md border border-border/30">
+            <service.icon className="h-5 w-5 text-primary" />
           </div>
-          <span className="font-mono text-[0.8rem] text-muted-foreground sm:text-sm">0{index + 1}</span>
+          <span className="absolute top-4 right-4 font-mono text-[0.8rem] text-foreground bg-background/90 backdrop-blur-sm px-2.5 py-1 rounded-md shadow-md border border-border/30">0{index + 1}</span>
         </div>
 
-        <h3 className="mb-1 text-xl font-semibold text-foreground leading-snug">{service.title}</h3>
-        <p className="mb-4 text-xs font-semibold text-primary uppercase tracking-wider">{service.subtitle}</p>
-        <p className="mb-6 text-sm text-muted-foreground sm:text-base leading-relaxed">{service.description}</p>
+        <div className="p-6 sm:p-8 pt-6">
+          <h3 className="mb-1 text-xl font-semibold text-foreground leading-snug">{service.title}</h3>
+          <p className="mb-4 text-xs font-semibold text-primary uppercase tracking-wider">{service.subtitle}</p>
+          <p className="mb-6 text-sm text-muted-foreground sm:text-base leading-relaxed">{service.description}</p>
 
-        <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-foreground">
-          Puntos clave:
-        </p>
+          <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-foreground">
+            Puntos clave:
+          </p>
 
-        <ul className="mb-6 space-y-4">
-          {service.bullets.map((bullet, i) => (
-            <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground sm:text-base">
-              <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" />
-              <span className="leading-relaxed">
-                {bullet.text}
-              </span>
-            </li>
-          ))}
-        </ul>
+          <ul className="mb-2 space-y-4">
+            {service.bullets.map((bullet, i) => (
+              <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground sm:text-base">
+                <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" />
+                <span className="leading-relaxed">
+                  {bullet.text}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
 
-      <div>
+      <div className="p-6 sm:p-8 pt-0">
         <button
           onClick={() => setIsExpanded(!isExpanded)}
           className="flex w-full items-center justify-between border-t border-border pt-4 text-sm text-primary transition-colors hover:text-primary/80 sm:text-base"

@@ -1,10 +1,24 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight, Shield } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export function Hero() {
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 pt-20">
+      {/* Ambient background image */}
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden opacity-[0.08] select-none">
+        <Image
+          src="/images/hero-bg.png"
+          alt="LCA Technology Solutions Cyber Security"
+          fill
+          priority
+          className="object-cover filter blur-[2px]"
+        />
+        {/* Soft radial overlay to vignette the background image */}
+        <div className="absolute inset-0 bg-radial from-transparent via-background/50 to-background" />
+      </div>
+
       {/* Subtle grid background */}
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.03]"
@@ -30,9 +44,7 @@ export function Hero() {
         </h1>
 
         <p className="mx-auto mb-10 max-w-2xl text-balance text-base text-muted-foreground sm:text-lg md:text-xl">
-          LCA monitoriza y reporta sobre la seguridad de tu infraestructura de forma continua. Backups,
-          actualizaciones, monitoreo de accesos y protocolos de respuesta. Sin necesidad de equipo
-          interno.
+          LCA monitoriza y reporta sobre la seguridad de tu infraestructura de forma continua. Monitoreo y protección de entornos, continuidad con respaldos y soporte web completo.
         </p>
 
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">

@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import {
   MailWarning,
   ShieldCheck,
@@ -16,19 +17,19 @@ const metrics = [
   {
     value: '31%',
     subtitle: 'PyMEs bajo Amenaza',
-    description: 'Uno de cada tres incidentes de seguridad global afecta directamente a las PyMEs. El uso de filtros con IA bloquea los intentos de suplantación antes de que toquen tu bandeja de entrada.',
+    description: 'Uno de cada tres incidentes de seguridad global afecta directamente a las PyMEs.',
     icon: MailWarning,
   },
   {
     value: '99%',
     subtitle: 'Bloqueo con MFA',
-    description: 'El robo de credenciales mediante contraseñas débiles representa la mayor vulnerabilidad corporativa. Activar la autenticación de doble factor frena el 99% de estos ataques.',
+    description: 'El robo de credenciales mediante contraseñas débiles representa la mayor vulnerabilidad corporativa.',
     icon: ShieldCheck,
   },
   {
     value: '0%',
     subtitle: 'Estrategia Zero Trust',
-    description: 'El software no puede garantizar el "riesgo cero", pero la arquitectura Zero Trust elimina los accesos implícitos. Así, cualquier anomalía se aísla de inmediato para que un error humano no paralice tu actividad ni comprometa tus datos.',
+    description: 'El software no puede garantizar el "riesgo cero", pero la arquitectura Zero Trust elimina los accesos implícitos.',
     icon: FileLock2,
   },
 ]
@@ -49,18 +50,31 @@ export function About() {
   return (
     <section id="suit" className="px-6 py-24 md:py-32">
       <div className="mx-auto max-w-7xl">
-        <div className="max-w-3xl mb-16">
-          <p className="mb-3 font-mono text-sm uppercase tracking-wider text-primary sm:text-base">Suit</p>
-          <h2 className="mb-6 text-balance text-3xl font-bold tracking-tight md:text-4xl">
-            Las herramientas que utilizamos
-          </h2>
-          <div className="space-y-6 text-base text-muted-foreground leading-relaxed sm:text-lg">
-            <p>
-              Toda nuestra gestión está centralizada en <strong className="font-semibold text-foreground">Microsoft 365 Business</strong>. Elegimos su plataforma profesional por una razón muy sencilla: las pequeñas empresas sufren hoy más del 30% de los ciberataques globales. Esta herramienta nos da el blindaje necesario para que la información de tu entorno esté totalmente protegida frente a las amenazas modernas.
-            </p>
-            <p>
-              Esto significa que cuando gestionamos tus documentos o nos comunicamos contigo, lo hacemos dentro de un entorno cerrado y vigilado. Aplicamos el mismo estándar de seguridad que utilizan las grandes empresas, pero adaptado específicamente para cuidar la continuidad, los datos y el día a día de tu negocio.
-            </p>
+        <div className="grid gap-12 lg:grid-cols-12 items-center mb-16">
+          <div className="lg:col-span-7">
+            <p className="mb-3 font-mono text-sm uppercase tracking-wider text-primary sm:text-base">Suit</p>
+            <h2 className="mb-6 text-balance text-3xl font-bold tracking-tight md:text-4xl">
+              Las herramientas que utilizamos
+            </h2>
+            <div className="space-y-6 text-base text-muted-foreground leading-relaxed sm:text-lg">
+              <p>
+                Toda nuestra gestión está centralizada en <strong className="font-semibold text-foreground">Microsoft 365 Business</strong>. Elegimos su plataforma profesional por una razón muy sencilla: las pequeñas empresas sufren hoy más del 30% de los ciberataques globales. Esta herramienta nos da el blindaje necesario para que la información de tu entorno esté totalmente protegida frente a las amenazas modernas.
+              </p>
+              <p>
+                Esto significa que cuando gestionamos tus documentos o nos comunicamos contigo, lo hacemos dentro de un entorno cerrado y vigilado. Aplicamos el mismo estándar de seguridad que utilizan las grandes empresas, pero adaptado específicamente para cuidar la continuidad, los datos y el día a día de tu negocio.
+              </p>
+            </div>
+          </div>
+          <div className="relative overflow-hidden rounded-xl border border-border bg-card lg:col-span-5 aspect-video sm:aspect-[4/3] lg:aspect-square">
+            <Image
+              src="/images/suit-team.png"
+              alt="Equipo de LCA Technology Solutions trabajando de forma segura"
+              fill
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              className="object-cover transition-transform duration-700 hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-primary/5 mix-blend-overlay" />
           </div>
         </div>
 
