@@ -7,6 +7,7 @@ import { Services } from '@/components/services'
 import { Contact } from '@/components/contact'
 import { Footer } from '@/components/footer'
 
+
 interface Props {
   params: Promise<{ location: string }>
 }

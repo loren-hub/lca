@@ -1,5 +1,6 @@
 import Link from 'next/link'
 
+
 export default function LegalNotice() {
   return (
     <div className="min-h-screen bg-background">

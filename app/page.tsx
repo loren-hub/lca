@@ -8,6 +8,7 @@ import { Team } from '@/components/team'
 import { Contact } from '@/components/contact'
 import { Footer } from '@/components/footer'
 
+
 export const dynamic = 'force-static'
 export const revalidate = 3600
 

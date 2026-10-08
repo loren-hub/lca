@@ -51,6 +51,7 @@ export const viewport: Viewport = {
 import { ThemeProvider } from '@/components/theme-provider'
 import { CookieBanner } from '@/components/cookie-banner'
 
+
 export const dynamic = 'force-static'
 export const revalidate = 3600
 
