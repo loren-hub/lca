@@ -1,29 +1,32 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useSyncExternalStore } from 'react'
 import Link from 'next/link'
 import { Button } from './ui/button'
 import { Cookie } from 'lucide-react'
 
+const emptySubscribe = () => () => {}
+
 export function CookieBanner() {
   const [isVisible, setIsVisible] = useState(false)
-  const [shouldRender, setShouldRender] = useState(false)
+  const isMounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  )
 
   useEffect(() => {
-    // Prevent hydration mismatch
-    setShouldRender(true)
-    
-    let consent = null
+    let consent: string | null = null
     try {
       consent = localStorage.getItem('lca-cookie-consent')
-    } catch (e) {
-      console.warn('localStorage is disabled or not accessible:', e)
+    } catch {
+      // localStorage is disabled or not accessible in sandbox
     }
 
     if (!consent) {
       const timer = setTimeout(() => {
         setIsVisible(true)
-      }, 1500)
+      }, 1200)
       return () => clearTimeout(timer)
     }
   }, [])
@@ -31,8 +34,8 @@ export function CookieBanner() {
   const handleAcceptAll = () => {
     try {
       localStorage.setItem('lca-cookie-consent', 'accepted')
-    } catch (e) {
-      console.warn('Could not save consent to localStorage:', e)
+    } catch {
+      // localStorage not accessible
     }
     setIsVisible(false)
   }
@@ -40,13 +43,13 @@ export function CookieBanner() {
   const handleRejectAll = () => {
     try {
       localStorage.setItem('lca-cookie-consent', 'rejected')
-    } catch (e) {
-      console.warn('Could not save consent to localStorage:', e)
+    } catch {
+      // localStorage not accessible
     }
     setIsVisible(false)
   }
 
-  if (!shouldRender || !isVisible) return null
+  if (!isMounted || !isVisible) return null
 
   return (
     <div className="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 z-50 max-w-sm p-5 rounded-2xl bg-background/95 border border-border/60 shadow-2xl backdrop-blur-md transition-all duration-300 transform translate-y-0 opacity-100 animate-in fade-in slide-in-from-bottom-5">

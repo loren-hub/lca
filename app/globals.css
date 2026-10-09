@@ -115,3 +115,14 @@ html {
   animation-play-state: paused;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee-slow {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+

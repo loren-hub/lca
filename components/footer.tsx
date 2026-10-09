@@ -4,9 +4,12 @@ import { Instagram, Linkedin } from 'lucide-react'
 const footerLinks = [
   { href: '#servicios', label: 'Servicios' },
   { href: '#proceso', label: 'Proceso' },
-  { href: '#suit', label: 'Nuestra Suit' },
+  { href: '#tecnologia', label: 'Tecnología' },
+  { href: '#faq', label: 'Preguntas Frecuentes' },
   { href: '#contacto', label: 'Contacto' },
 ]
+
+
 
 const socialLinks = [
   { href: 'https://www.linkedin.com/company/lca-ts/', label: 'LinkedIn', icon: Linkedin },

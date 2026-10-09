@@ -2,7 +2,7 @@ import eslintConfigNext from 'eslint-config-next'
 import tseslint from '@typescript-eslint/eslint-plugin'
 import tsParser from '@typescript-eslint/parser'
 
-export default [
+const config = [
   ...eslintConfigNext,
   {
     languageOptions: {
@@ -13,7 +13,10 @@ export default [
     },
     rules: {
       '@typescript-eslint/no-unused-vars': 'warn',
-      'no-console': 'warn',
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
     },
   },
 ]
+
+export default config
+

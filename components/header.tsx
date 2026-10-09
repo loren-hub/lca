@@ -9,19 +9,21 @@ import { ThemeToggle } from '@/components/theme-toggle'
 const navLinks = [
   { href: '#servicios', label: 'Servicios' },
   { href: '#proceso', label: 'Proceso' },
-  { href: '#suit', label: 'Nuestra Suit' },
+  { href: '#tecnologia', label: 'Tecnología' },
+  { href: '#faq', label: 'Preguntas Frecuentes' },
   { href: '#contacto', label: 'Contacto' },
 ]
+
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-md">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-xl font-semibold tracking-tight">
-            LCA <span className="text-primary">Technology Solutions</span>
+          <span className="text-xl font-bold tracking-tight">
+            LCA <span className="font-medium text-primary">Technology Solutions</span>
           </span>
         </Link>
 
@@ -30,7 +32,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground sm:text-base"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               {link.label}
             </Link>
@@ -39,8 +41,8 @@ export function Header() {
 
         <div className="hidden items-center gap-4 md:flex">
           <ThemeToggle />
-          <Button asChild>
-            <Link href="#contacto">Contacta con nosotros</Link>
+          <Button asChild size="sm">
+            <Link href="#contacto">Solicitar diagnóstico</Link>
           </Button>
         </div>
 
@@ -49,7 +51,8 @@ export function Header() {
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
-            className="p-1.5"
+            aria-expanded={isMenuOpen}
+            className="p-1.5 text-foreground"
           >
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -71,7 +74,7 @@ export function Header() {
             ))}
             <Button asChild className="mt-4">
               <Link href="#contacto" onClick={() => setIsMenuOpen(false)}>
-                Agendar llamada
+                Solicitar diagnóstico
               </Link>
             </Button>
           </nav>

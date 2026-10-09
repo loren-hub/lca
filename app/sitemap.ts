@@ -4,50 +4,40 @@ import { locations } from '@/lib/locations'
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://lcatechnologysolutions.com'
 
-  const locationUrls = locations.map((loc) => ({
-    url: `${baseUrl}/ciberseguridad-en-${loc.slug}`,
+  const locationUrls: MetadataRoute.Sitemap = locations.map((loc) => ({
+    url: `${baseUrl}/ciberseguridad-en/${loc.slug}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.8,
   }))
 
-  return [
+  const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1,
+      changeFrequency: 'monthly' as const,
+      priority: 1.0,
     },
     {
-      url: `${baseUrl}#servicios`,
+      url: `${baseUrl}/aviso-legal`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
+      changeFrequency: 'yearly' as const,
+      priority: 0.3,
     },
     {
-      url: `${baseUrl}#proceso`,
+      url: `${baseUrl}/privacidad`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
+      changeFrequency: 'yearly' as const,
+      priority: 0.3,
     },
     {
-      url: `${baseUrl}#suit`,
+      url: `${baseUrl}/cookies`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
+      changeFrequency: 'yearly' as const,
+      priority: 0.3,
     },
-    {
-      url: `${baseUrl}#equipo`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}#contacto`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    ...locationUrls,
   ]
+
+  return [...staticPages, ...locationUrls]
 }
+

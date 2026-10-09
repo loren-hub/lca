@@ -14,13 +14,17 @@ export function JsonLdScript() {
       '@type': 'PostalAddress',
       addressCountry: 'ES',
     },
-    sameAs: [],
+    sameAs: [
+      'https://www.linkedin.com/company/lca-ts/',
+      'https://www.instagram.com/lca.technology.solutions/',
+    ],
     knowsAbout: [
       { '@type': 'DefinedTerm', name: 'Ciberseguridad' },
       { '@type': 'DefinedTerm', name: 'Monitorización de seguridad' },
       { '@type': 'DefinedTerm', name: 'Auditoría IT' },
-      { '@type': 'DefinedTerm', name: 'SOC' },
-      { '@type': 'DefinedTerm', name: 'Protocolos de respuesta' },
+      { '@type': 'DefinedTerm', name: 'SOC para PYMEs' },
+      { '@type': 'DefinedTerm', name: 'Continuidad de negocio y backups' },
+      { '@type': 'DefinedTerm', name: 'Cumplimiento RGPD' },
     ],
     serviceArea: {
       '@type': 'Country',
@@ -29,8 +33,8 @@ export function JsonLdScript() {
     offers: {
       '@type': 'AggregateOffer',
       priceCurrency: 'EUR',
-      lowPrice: '500',
-      highPrice: '5000',
+      lowPrice: '300',
+      highPrice: '3000',
       offerCount: '6',
       offers: [
         {
@@ -55,7 +59,7 @@ export function JsonLdScript() {
           '@type': 'Offer',
           name: 'Gestión de Altas y Bajas',
           description:
-            'Administración centralizada de usurios, reseteo de accesos y migración de datos entre empleados.',
+            'Administración centralizada de usuarios, reseteo de accesos y migración de datos entre empleados.',
         },
         {
           '@type': 'Offer',
@@ -73,30 +77,6 @@ export function JsonLdScript() {
     },
   }
 
-  const team = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Person',
-      name: 'Miguel Ángel Acosta',
-      jobTitle: 'Coordinador de Proyectos',
-      worksFor: { '@type': 'Organization', name: 'LCA Technology Solutions' },
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Person',
-      name: 'Brayan Carrión',
-      jobTitle: 'Consultor de Ciberseguridad',
-      worksFor: { '@type': 'Organization', name: 'LCA Technology Solutions' },
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Person',
-      name: 'Rubén López',
-      jobTitle: 'Técnico de Infraestructura',
-      worksFor: { '@type': 'Organization', name: 'LCA Technology Solutions' },
-    },
-  ]
-
   const faq = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -106,23 +86,39 @@ export function JsonLdScript() {
         name: '¿Qué ocurre cuando no hay nadie mirando la seguridad IT?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Sin supervisión continua, las PYMEs acumulan riesgos silenciosos: contraseñas reutilizadas, backups sin verificar, sistemas sin actualizar y accesos no autorizados que pasan desapercibidos hasta que es demasiado tarde.',
+          text: 'Sin supervisión continua, las PYMEs acumulan riesgos silenciosos: contraseñas reutilizadas, copias de seguridad sin verificar que fallaron hace semanas, sistemas desactualizados y accesos no autorizados que pasan desapercibidos hasta que se produce una extorsión por ransomware o una fuga de datos.',
         },
       },
       {
         '@type': 'Question',
-        name: '¿Qué incluye el servicio de SOC?',
+        name: '¿Qué incluye exactamente el servicio de monitorización y SOC?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'El SOC centraliza logs de Microsoft 365, Google Workspace y dispositivos de red, detecta comportamientos anómalos y genera informes mensuales de seguridad en lenguaje no técnico.',
+          text: 'Centralizamos registros de actividad de Microsoft 365, Google Workspace, puestos de trabajo y red. Detectamos comportamientos anómalos (inicios de sesión sospechosos, descargas masivas, ejecución de malware), bloqueamos la amenaza de inmediato y te entregamos informes mensuales periódicos en lenguaje claro y sin tecnicismos innecesarios.',
         },
       },
       {
         '@type': 'Question',
-        name: '¿Cómo es el proceso de trabajo con LCA Technology Solutions?',
+        name: '¿Obligáis a cambiar de software o interrumpís el trabajo diario?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Comenzamos con un diagnóstico inicial de tu infraestructura, presentamos una propuesta concreta con prioridades y costes, acompañamos la implementación y establecemos supervisión continua con reportes periódicos.',
+          text: 'No. Nos adaptamos a las herramientas que tu empresa ya utiliza (como Microsoft 365, Google Workspace o servidores locales) y las configuramos de forma segura. El despliegue inicial se realiza en segundo plano, sin cortes de servicio ni molestias para tus empleados.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Cómo es el proceso inicial de diagnóstico y propuesta?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Comenzamos con una auditoría preliminar de tu infraestructura sin coste ni compromiso. Evaluamos tu nivel de exposición, identificamos brechas críticas y te presentamos un informe claro con prioridades y costes ajustados al tamaño real de tu empresa.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '¿Existe algún tipo de permanencia obligatoria?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Ninguna. Creemos en relaciones de confianza basadas en resultados. Nuestros contratos de monitorización se renuevan mes a mes y puedes cancelar el servicio cuando lo decidas con un preaviso sencillo.',
         },
       },
     ],
@@ -134,13 +130,6 @@ export function JsonLdScript() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organization) }}
       />
-      {team.map((item, i) => (
-        <script
-          key={`team-${i}`}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(item) }}
-        />
-      ))}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }}
@@ -148,3 +137,4 @@ export function JsonLdScript() {
     </>
   )
 }
+

@@ -1,0 +1,22 @@
+---
+badge: "Riesgos cotidianos"
+title: "Los descuidos que ponen en riesgo tu empresa"
+subtitle: "Una contraseña reutilizada o una copia fallida pueden acabar en pérdida de datos."
+problems:
+  - id: "passwords"
+    icon: "KeyRound"
+    title: "Contraseñas reutilizadas"
+    text: "Reutilizar claves sin doble factor expone tus cuentas ante una filtración."
+  - id: "backups"
+    icon: "Database"
+    title: "Copias que no funcionan"
+    text: "Una copia fallida puede dejarte sin datos que restaurar."
+  - id: "patches"
+    icon: "Laptop"
+    title: "Equipos sin actualizar"
+    text: "Los sistemas desactualizados dejan abiertas vulnerabilidades conocidas."
+  - id: "sessions"
+    icon: "ShieldAlert"
+    title: "Accesos sospechosos"
+    text: "Un acceso no autorizado pasa desapercibido sin supervisión."
+---
