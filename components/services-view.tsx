@@ -32,7 +32,7 @@ function ServiceCard({
             className="object-cover transition-transform duration-700 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
-          
+
           <div className="absolute top-4 left-4 flex h-10 w-10 items-center justify-center rounded-xl bg-background/90 backdrop-blur-md shadow-md border border-border/40">
             <Icon className="h-5 w-5 text-primary" />
           </div>

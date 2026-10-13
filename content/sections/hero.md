@@ -1,7 +1,7 @@
 ---
-badge: "Seguridad gestionada para pymes"
-title: "Ciberseguridad para empresas sin equipo IT"
-subtitle: "Cuidamos tus cuentas, equipos y copias de seguridad. Detectamos accesos sospechosos y actuamos cuando hay un problema."
+badge: "Monitorización y SOC gestionado"
+title: "Ciberseguridad para empresas sin departamento IT"
+subtitle: "Monitorización de equipos y cuentas, control de accesos y copias verificadas. Ante una intrusión, bloqueamos el acceso y analizamos el incidente."
 ctaPrimary:
   text: "Solicitar diagnóstico gratuito"
   href: "#contacto"
@@ -11,5 +11,5 @@ ctaSecondary:
 trustPoints:
   - "Sin permanencia"
   - "Respuesta técnica en < 24h"
-  - "Adaptado al RGPD y Esquema Nacional"
+  - "Adaptado al RGPD y al Esquema Nacional de Seguridad"
 ---
