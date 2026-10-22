@@ -5,85 +5,96 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38bdf8?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 
-**LCA Technology Solutions** is a high-end, editorial-style web presence for a cybersecurity and IT monitoring firm specializing in Spanish SMEs. The project implements a "clean brutalist" aesthetic—deliberately avoiding generic SaaS tropes in favor of a direct, professional, and human-centric presentation.
+---
 
-## 🏛️ Design Philosophy
+## 🚀 Características Principales
 
-This project follows a "technical editorial" approach:
-- **Brutalist Roots**: High-contrast, strong typography (Geist & Geist Mono), and clear information hierarchy.
-- **Non-Standard Layouts**: Avoidance of generic "AI-slop" grids, opting for varied, intentional section designs.
-- **Language**: Fully localized in Spanish (`es_ES`), catering specifically to the Spanish SME market.
+- **Diseño Editorial Técnico**: Estética limpia con enfoque en tipografía, datos legibles y autenticidad técnica.
+- **Presentación de Servicios Especializados**: Desglose claro de áreas clave: auditoría técnica de seguridad, monitorización SOC continuo y protocolos de respuesta a incidentes.
+- **Formulario de Contacto Funcional**: Integración con [Resend API](https://resend.com/) validada mediante esquemas en servidor.
+- **Optimización y SEO Técnico**: Estructura semántica HTML5, metadatos dinámicos OpenGraph/Twitter Cards, accesibilidad y rendimiento optimizado.
+- **Stack Moderno**: Desarrollado con Next.js 15 (App Router) y React 19.
 
-## 🚀 Key Features
+---
 
-- **Brutalist Technical Aesthetic**: A unique design language that avoids standard SaaS tropes, focusing on typography, grid-less layouts, and technical authenticity.
-- **Service-Oriented Architecture**: Clear, detailed presentation of core services (Auditing, SOC, and Response Protocols) with real-world case studies.
-- **Fully Responsive**: Optimized for all devices, from mobile to desktop.
-- **Contact Integration**: Functional contact form powered by the [Resend API](https://resend.com/).
-- **SEO Optimized**: Strict adherence to technical SEO standards, including metadata, semantic HTML, and accessibility.
-- **Next.js 15+ & React 19**: Built with the latest technologies for performance and maintainability.
-
-## 🛠️ Tech Stack
+## 🛠️ Stack Tecnológico
 
 - **Framework**: [Next.js](https://nextjs.org/) (App Router)
-- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
-- **UI Components**: [Radix UI](https://www.radix-ui.com/) & [Lucide Icons](https://lucide.dev/)
-- **Forms**: [React Hook Form](https://react-hook-form.com/) & [Zod](https://zod.dev/)
-- **Email**: [Resend](https://resend.com/)
-- **Deployment**: Optimized for [Vercel](https://vercel.com/)
+- **Lenguaje**: [TypeScript](https://www.typescriptlang.org/)
+- **Estilos**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Componentes y Primitivas**: [Radix UI](https://www.radix-ui.com/) e Iconos de [Lucide](https://lucide.dev/)
+- **Formularios y Validación**: [React Hook Form](https://react-hook-form.com/) y [Zod](https://zod.dev/)
+- **Servicio de Correo**: [Resend](https://resend.com/)
+- **Despliegue**: Optimizado para [Vercel](https://vercel.com/)
 
-## 📁 Project Structure
+---
+
+## 📁 Estructura del Proyecto
 
 ```bash
-├── app/                # Next.js App Router (Layouts, Pages, API)
-├── components/         # Reusable UI components (Hero, Services, Contact, etc.)
-├── hooks/              # Custom React hooks
-├── lib/                # Utility functions and shared logic
-├── public/             # Static assets (images, icons, fonts)
-└── styles/             # Global CSS and Tailwind configuration
+├── app/                # App Router de Next.js (layouts, páginas y rutas de API)
+├── components/         # Componentes reutilizables (Hero, Servicios, Casos, Contacto, etc.)
+├── content/            # Contenido estático y secciones en Markdown
+├── hooks/              # Hooks personalizados de React
+├── lib/                # Utilidades, esquemas de validación y lógica compartida
+├── public/             # Recursos estáticos (imágenes, favicons, iconos)
+└── styles/             # Estilos globales y configuración de estilos
 ```
 
-## ⚙️ Getting Started
+---
 
-### Prerequisites
+## ⚙️ Puesta en Marcha
 
-- Node.js 18.x or later
-- npm, yarn, or pnpm
+### Prerrequisitos
 
-### Installation
+- Node.js 18.x o superior
+- Gestor de paquetes: npm, pnpm o yarn
 
-1. Clone the repository:
+### Instalación
+
+1. **Clonar el repositorio**:
    ```bash
    git clone https://github.com/loren-hub/lca.git
+   cd lca
    ```
 
-2. Install dependencies:
+2. **Instalar dependencias**:
    ```bash
    npm install
    ```
 
-3. Set up environment variables:
-   Create a `.env.local` file in the root directory and add your Resend API key:
+3. **Variables de entorno**:
+   Copia el archivo de ejemplo a `.env.local` y configura tu clave de Resend:
+   ```bash
+   cp .env.example .env.local
+   ```
+   En `.env.local`:
    ```env
-   RESEND_API_KEY=re_your_api_key
+   RESEND_API_KEY=tu_clave_de_resend
    ```
 
-4. Run the development server:
+4. **Ejecutar el servidor de desarrollo**:
    ```bash
    npm run dev
    ```
 
-5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## 🧪 Testing and Quality
-
-- **Linting**: `npm run lint`
-- **Building**: `npm run build`
-
-## 📄 License
-
-This project is private and proprietary. All rights reserved.
+5. Abrir [http://localhost:3000](http://localhost:3000) en el navegador.
 
 ---
 
-Built with ❤️ by LCA Technology Solutions.
+## 🧪 Comandos Disponibles
+
+- `npm run dev`: Inicia el servidor de desarrollo en local.
+- `npm run build`: Genera la compilación para producción.
+- `npm run start`: Inicia el servidor de producción.
+- `npm run lint`: Ejecuta el análisis estático de código con ESLint.
+
+---
+
+## 📄 Licencia y Derechos
+
+Este proyecto es privado y propietario. Todos los derechos reservados.
+
+---
+
+Desarrollado con dedicación para **LCA Technology Solutions**.
